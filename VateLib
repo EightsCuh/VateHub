@@ -1,0 +1,305 @@
+-- ____    ____  ___   .___________. _______  __       __  .______   
+-- \   \  /   / /   \  |           ||   ____||  |     |  | |   _  \  
+--  \   \/   / /  ^  \ `---|  |----`|  |__   |  |     |  | |  |_)  | 
+--   \      / /  /_\  \    |  |     |   __|  |  |     |  | |   _  <  
+--    \    / /  _____  \   |  |     |  |____ |  `----.|  | |  |_)  | 
+--     \__/ /__/     \__\  |__|     |_______||_______||__| |______/  
+
+local Library = {};
+local States = {};
+local UserInputService = game:GetService("UserInputService");
+local TweenService = game:GetService("TweenService");
+local Mouse = game:GetService("Players").LocalPlayer:GetMouse();
+
+function Library:CreateWindow(Name)
+    local VateLib = Instance.new("ScreenGui")
+    local Vateimg = Instance.new("Frame")
+    local MenuName = Instance.new("TextLabel")
+    local UIGradient = Instance.new("UIGradient")
+    local ToggleSection = Instance.new("Frame")
+    local UIGridLayout = Instance.new("UIGridLayout")
+    local ItemHolder = Instance.new("Frame")
+    local TextLabel = Instance.new("TextLabel")
+    local Toggle = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local TextButton = Instance.new("TextButton")
+    local UICorner_2 = Instance.new("UICorner")
+    local ItemHolder_2 = Instance.new("Frame")
+    local Slider = Instance.new("Frame")
+    local UICorner_3 = Instance.new("UICorner")
+    local Value_Slider = Instance.new("Frame")
+    local UICorner_4 = Instance.new("UICorner")
+    local Dragg_Slider = Instance.new("Frame")
+    local UICorner_5 = Instance.new("UICorner")
+    local TextLabel_2 = Instance.new("TextLabel")
+    local Button = Instance.new("TextButton")
+    local Divder = Instance.new("Frame")
+    local MainLib = Instance.new("Frame")
+    local MainButton = Instance.new("TextButton")
+    local UIListLayout = Instance.new("UIListLayout")
+    local Settings = Instance.new("TextButton")
+
+
+    VateLib.Name = "VateLib"
+    syn.protect_gui(VateLib)
+    VateLib.Parent = game.CoreGui
+    VateLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+    Vateimg.Name = "Vateimg"
+    Vateimg.Parent = VateLib
+    Vateimg.Active = true
+    Vateimg.AnchorPoint = Vector2.new(0.5, 0.5)
+    Vateimg.BackgroundColor3 = Color3.fromRGB(255, 105, 97)
+    Vateimg.BackgroundTransparency = 0.400
+    Vateimg.BorderColor3 = Color3.fromRGB(255, 105, 97)
+    Vateimg.Position = UDim2.new(0.5, 0, 0.197854578, 0)
+    Vateimg.Selectable = true
+    Vateimg.Size = UDim2.new(0, 524, 0, 79)
+    Vateimg.ZIndex = 20
+
+    MenuName.Name = "MenuName"
+    MenuName.Parent = Vateimg
+    MenuName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    MenuName.BackgroundTransparency = 1.000
+    MenuName.BorderSizePixel = 0
+    MenuName.Position = UDim2.new(0.274349421, 0, 0, 0)
+    MenuName.Size = UDim2.new(0, 236, 0, 79)
+    MenuName.Font = Enum.Font.Kalam
+    MenuName.Text = Name
+    MenuName.TextColor3 = Color3.fromRGB(255, 255, 255)
+    MenuName.TextScaled = true
+    MenuName.TextSize = 39.000
+    MenuName.TextWrapped = true
+
+    UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 105, 97)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 105, 97))}
+    UIGradient.Offset = Vector2.new(10, 0)
+    UIGradient.Rotation = 1
+    UIGradient.Parent = Vateimg
+
+
+    Divder.Name = "Divder"
+    Divder.Parent = Vateimg
+    Divder.AnchorPoint = Vector2.new(0.5, 0.5)
+    Divder.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    Divder.BorderSizePixel = 0
+    Divder.Position = UDim2.new(0.335084736, 0, 3.61768842, 0)
+    Divder.Size = UDim2.new(0, 21, 0, 415)
+
+    MainLib.Name = "MainLib"
+    MainLib.Parent = Vateimg
+    MainLib.AnchorPoint = Vector2.new(0.5, 0.5)
+    MainLib.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    MainLib.BackgroundTransparency = 0.200
+    MainLib.BorderSizePixel = 0
+    MainLib.Position = UDim2.new(0.177253902, 0, 3.61831713, 0)
+    MainLib.Size = UDim2.new(0, 186, 0, 415)
+
+
+    UIListLayout.Parent = MainLib
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.Padding = UDim.new(0, 5)
+
+
+
+    local VateLibrary = {}
+
+    function VateLibrary:CreateTab(Bleh)
+        MainButton.Name = "Main Button"
+        MainButton.Parent = MainLib
+        MainButton.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+        MainButton.BorderSizePixel = 0
+        MainButton.Size = UDim2.new(0, 165,0, 34)
+        MainButton.Font = Enum.Font.Kalam
+        MainButton.Text = Bleh
+        MainButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+        MainButton.TextSize = 31.000
+        MainButton.TextWrapped = true
+
+        ToggleSection.Name = "ToggleSection"
+        ToggleSection.Parent = Vateimg
+        ToggleSection.AnchorPoint = Vector2.new(0.5, 0.5)
+        ToggleSection.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        ToggleSection.BackgroundTransparency = 0.200
+        ToggleSection.BorderSizePixel = 0
+        ToggleSection.Position = UDim2.new(0.678021491, 0, 3.61768818, 0)
+        ToggleSection.Size = UDim2.new(0, 338, 0, 415)
+        ToggleSection.Visible = false
+
+        UIGridLayout.Parent = ToggleSection
+        UIGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+        UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        UIGridLayout.CellPadding = UDim2.new(0, 15, 0, 5)
+        UIGridLayout.CellSize = UDim2.new(0, 336, 0, 30)
+        
+        MainButton.MouseButton1Click:Connect(function()
+            ToggleSection.Visible = true
+        end)
+
+    end
+
+    function VateLibrary:CreateSettings()
+        Settings.Name = "Settings"
+        Settings.Parent = Vateimg
+        Settings.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+        Settings.BackgroundTransparency = 1.000
+        Settings.BorderSizePixel = 0
+        Settings.Position = UDim2.new(-0.00190839695, 0, 5.8041482, 0)
+        Settings.Size = UDim2.new(0, 167, 0, 34)
+        Settings.Font = Enum.Font.Kalam
+        Settings.Text = "Settings"
+        Settings.TextColor3 = Color3.fromRGB(255, 255, 255)
+        Settings.TextSize = 31.000
+        Settings.TextWrapped = true
+
+        ToggleSection.Name = "SettingSection"
+        ToggleSection.Parent = Vateimg
+        ToggleSection.AnchorPoint = Vector2.new(0.5, 0.5)
+        ToggleSection.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        ToggleSection.BackgroundTransparency = 0.200
+        ToggleSection.BorderSizePixel = 0
+        ToggleSection.Position = UDim2.new(0.678021491, 0, 3.61768818, 0)
+        ToggleSection.Size = UDim2.new(0, 338, 0, 415)
+        ToggleSection.Visible = false
+
+        Settings.MouseButton1Click:Connect(function()
+            ToggleSection.Visible = true
+        end)
+    end
+
+    function VateLibrary:CreateToggle(Bleh, callback)
+        ItemHolder.Name = "ItemHolder"
+        ItemHolder.Parent = ToggleSection
+        ItemHolder.AnchorPoint = Vector2.new(0.5, 0.5)
+        ItemHolder.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+        ItemHolder.BackgroundTransparency = 1.000
+        ItemHolder.BorderSizePixel = 0
+        ItemHolder.Position = UDim2.new(0.498976976, 0, 0.187951803, 0)
+        ItemHolder.Size = UDim2.new(0, 334, 0, 100)
+        ItemHolder.ZIndex = 20
+        
+        TextLabel.Parent = ItemHolder
+        TextLabel.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+        TextLabel.BackgroundTransparency = 1.000
+        TextLabel.Position = UDim2.new(0.0322747305, 0, 0.0755555481, 0)
+        TextLabel.Size = UDim2.new(0, 200, 0, 31)
+        TextLabel.Font = Enum.Font.Kalam
+        TextLabel.Text = Bleh
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.TextScaled = true
+        TextLabel.TextSize = 14.000
+        TextLabel.TextWrapped = true
+        
+        Toggle.Name = "Toggle"
+        Toggle.Parent = ItemHolder
+        Toggle.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+        Toggle.Position = UDim2.new(0.811395049, 0, 0.379999995, 0)
+        Toggle.Size = UDim2.new(0, 35, 0, 10)
+        
+        UICorner.CornerRadius = UDim.new(1, 1)
+        UICorner.Parent = Toggle
+        
+        TextButton.Parent = Toggle
+        TextButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+        TextButton.BorderColor3 = Color3.fromRGB(255, 0, 0)
+        TextButton.Position = UDim2.new(-0.024, 0, -0.5, 0)
+        TextButton.Size = UDim2.new(0, 20, 0, 20)
+        TextButton.Font = Enum.Font.SourceSans
+        TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+        TextButton.TextSize = 14.000
+        TextButton.TextTransparency = 1.000
+        
+        UICorner_2.CornerRadius = UDim.new(20, 20)
+        UICorner_2.Parent = TextButton
+        
+        local State = false
+
+        TextButton.MouseButton1Click:Connect(function()
+            if TextButton.BackgroundColor3 == Color3.fromRGB(255, 0, 0) then
+                TextButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+                TextButton.Position = UDim2.new(0.404, 0, -0.5, 0)
+                State = true
+            else
+                TextButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+                TextButton.Position = UDim2.new(-0.024, 0, -0.5, 0)
+                State = false
+            end
+        end)
+
+        function Vate()
+            callback(State)
+        end
+
+        TextButton.MouseButton1Click:Connect(Vate)
+    end
+    
+    function VateLibrary:CreateButton(Bleh)
+        Button.Name = "Button"
+        Button.Parent = ToggleSection
+        Button.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+        Button.BorderColor3 = Color3.fromRGB(60, 60, 60)
+        Button.BorderSizePixel = 2
+        Button.Position = UDim2.new(0.497269869, 0, 0.516699791, 0)
+        Button.Size = UDim2.new(0, 132, 0, 31)
+        Button.ZIndex = 20
+        Button.Font = Enum.Font.Kalam
+        Button.Text = Bleh
+        Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+        Button.TextScaled = true
+        Button.TextSize = 14.000
+        Button.TextWrapped = true
+    end
+
+    function Library:MakeDraggable(Object) 
+        -- Skidded from v3rm :shrug:
+        local gui = Object
+        
+        local dragging
+        local dragInput
+        local dragStart
+        local startPos
+        
+        local function update(input)
+            local delta = input.Position - dragStart
+            local EndPos = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+            local Tween = TweenService:Create(
+                gui, 
+                TweenInfo.new(0.1), 
+                {Position = EndPos}
+            )
+            Tween:Play()
+        end
+        
+        gui.InputBegan:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                dragging = true
+                dragStart = input.Position
+                startPos = gui.Position
+                
+                input.Changed:Connect(function()
+                    if input.UserInputState == Enum.UserInputState.End then
+                        dragging = false
+                    end
+                end)
+            end
+        end)
+        
+        gui.InputChanged:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                dragInput = input
+            end
+        end)
+        
+        UserInputService.InputChanged:Connect(function(input)
+            if input == dragInput and dragging then
+                update(input)
+            end
+        end)
+    end
+
+
+
+
+    Library:MakeDraggable(Vateimg)
+
+    return VateLibrary
+end
